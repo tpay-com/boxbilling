@@ -165,6 +165,7 @@ class Payment_Adapter_tpay extends Payment_AdapterAbstract
         );
         if (!filter_input(INPUT_SERVER, static::REMOTE)
             || !in_array(filter_input(INPUT_SERVER, static::REMOTE), $secureIP)
+	    || empty($_POST)
         ) {
             throw new Payment_Exception("Invalid server IP or empty POST");
         }
